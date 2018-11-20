@@ -1,0 +1,74 @@
+{
+    "en": {
+        "": {
+            "project-id-version": "",
+            "pot-creation-date": "",
+            "po-revision-date": "",
+            "last-translator": "",
+            "language-team": "",
+            "language": "en",
+            "mime-version": "1.0",
+            "content-type": "text/plain; charset=UTF-8",
+            "content-transfer-encoding": "8bit",
+            "plural-forms": "nplurals=2; plural=(n != 1);",
+            "x-generator": "Poedit 1.8.7.1",
+            "x-poedit-basepath": "."
+        },
+        "Welcome to Reactivist Component demo page": [
+            null,
+            "Welcome to Reactivist Component demo page"
+        ],
+        "This is only for demonstration purposes": [
+            null,
+            "This is only for demonstration purposes"
+        ]
+    },
+    "es": {
+        "": {
+            "project-id-version": "",
+            "pot-creation-date": "",
+            "po-revision-date": "",
+            "language-team": "",
+            "mime-version": "1.0",
+            "content-type": "text/plain; charset=UTF-8",
+            "content-transfer-encoding": "8bit",
+            "plural-forms": "nplurals=2; plural=(n != 1);",
+            "x-generator": "Poedit 1.8.7.1",
+            "x-poedit-basepath": ".",
+            "last-translator": "",
+            "language": "es"
+        },
+        "Welcome to Reactivist Component demo page": [
+            null,
+            "Bienvenido a la demo de Reactivist Component"
+        ],
+        "This is only for demonstration purposes": [
+            null,
+            "Esto sólo tiene finalidad demostrativa"
+        ]
+    },
+    "ca": {
+        "": {
+            "project-id-version": "",
+            "pot-creation-date": "",
+            "po-revision-date": "2018-11-13 15:03+0100",
+            "last-translator": "",
+            "language-team": "",
+            "language": "ca",
+            "mime-version": "1.0",
+            "content-type": "text/plain; charset=UTF-8",
+            "content-transfer-encoding": "8bit",
+            "x-generator": "Poedit 1.8.7.1",
+            "x-poedit-basepath": ".",
+            "plural-forms": "nplurals=2; plural=(n != 1);"
+        },
+        "Welcome to Reactivist Component demo page": [
+            null,
+            "Benvingut a la demo d'un Reactivist Component"
+        ],
+        "This is only for demonstration purposes": [
+            null,
+            "Això només té finalitat demostrativa"
+        ]
+    }
+}

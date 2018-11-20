@@ -1,0 +1,7 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 8889
+    },
+    "env": "test"
+}

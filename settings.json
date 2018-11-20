@@ -1,0 +1,306 @@
+{
+    "env": "test",
+    "grunt": {
+        "serve": {
+            "default": {
+                "host": "127.0.0.1",
+                "port": 8889
+            }
+        },
+        "clean": {
+            "default": {
+                "files": [
+                    "dev/grunt:build.json",
+                    "dist/**/*",
+                    "src/bundle.js",
+                    "src/**/*.js",
+                    "src/**/*.css"
+                ]
+            }
+        },
+        "watch": {
+            "default": {
+                "files": ["src/**/*.jsx", "src/**/*.scss", "src/**/*.html"],
+                "options": {}
+            }
+        },
+        "docs": {
+            "default": {
+                "options": [
+                    {
+                        "include": [
+                            "test/unit/src/index.jsx",
+                            "test/unit/src/component.test.jsx",
+                            "test/unit/src/helpers/state-injection.jsx",
+                            "test/unit/src/index.scss"
+                        ],
+                        "exclude": ["**node_modules**", "**bower_components**"],
+                        "output": "test/unit/README-Unit-tests.md",
+                        "format": "markdown"
+                    },
+                    {
+                        "include": ["dev/grunt:*.js"],
+                        "exclude": ["**node_modules**", "**bower_components**"],
+                        "output": "docs/README-Commands.md",
+                        "format": "markdown"
+                    },
+                    {
+                        "include": ["test/e2e/integration/index.test.js"],
+                        "exclude": ["**node_modules**", "**bower_components**"],
+                        "output": "test/e2e/README-User-tests.md",
+                        "format": "markdown"
+                    },
+                    {
+                        "include": [
+                            "test/unit/src/index.jsx",
+                            "test/unit/src/component.test.jsx"
+                        ],
+                        "exclude": ["**node_modules**", "**bower_components**"],
+                        "output": "test/unit/README-Unit-tests.md",
+                        "format": "markdown"
+                    },
+                    {
+                        "include": [
+                            "src/index.jsx",
+                            "src/component.jsx",
+                            "src/*/**/*.jsx",
+                            "!**bundle.css**",
+                            "!**bundle.js**"
+                        ],
+                        "exclude": ["**node_modules**", "**bower_components**"],
+                        "output": "src/README-API.md",
+                        "format": "markdown"
+                    }
+                ],
+                "unifications": [
+                    {
+                        "include": ["docs/architecture/*.md"],
+                        "output": "docs/README-Architecture.md"
+                    },
+                    {
+                        "include": ["docs/workflows/*.md"],
+                        "output": "docs/README-Workflows.md"
+                    },
+                    {
+                        "include": ["docs/requirements/*.md"],
+                        "output": "docs/README-Requirements.md"
+                    },
+                    {
+                        "include": [
+                            "test/e2e/README-User-tests.md",
+                            "test/unit/README-Unit-tests.md"
+                        ],
+                        "output": "docs/README-Tests.md"
+                    },
+                    {
+                        "include": ["src/README-API.md"],
+                        "output": "docs/README-API.md"
+                    },
+                    {
+                        "include": ["docs/general/*.md"],
+                        "output": "docs/README-General.md"
+                    },
+                    {
+                        "include": [
+                            "docs/README-General.md",
+                            "docs/README-Architecture.md",
+                            "docs/README-Requirements.md",
+                            "docs/README-Workflows.md",
+                            "docs/README-API.md",
+                            "docs/README-Tests.md",
+                            "docs/README-Commands.md",
+                            "CHANGELOG.md",
+                            "LICENSE.md"
+                        ],
+                        "output": "README.md"
+                    }
+                ]
+            }
+        },
+        "pack": {
+            "default": {
+                "outFileMinified": "src/bundle.min.js",
+                "outFile": "src/bundle.js",
+                "files": ["src/index.jsx"],
+                "options": {
+                    "debug": true,
+                    "browserifyOptions": {
+                        "debug": true
+                    },
+                    "transform": [
+                        [
+                            "babelify",
+                            {
+                                "plugins": [],
+                                "extensions": [".js", ".jsx"],
+                                "presets": [
+                                    ["babel-preset-env"],
+                                    ["babel-preset-react"]
+                                ]
+                            }
+                        ],
+                        ["browserify-istanbul", {}]
+                    ]
+                }
+            }
+        },
+        "unit": {
+            "default": {
+                "files": ["test/unit/src/index.jsx"],
+                "outFile": "test/unit/dist/bundle.test.js",
+                "cssFile": "test/unit/src/index.scss",
+                "cssOutFile": "test/unit/dist/bundle.test.css",
+                "electron": {
+                    "config": {
+                        "browser": {
+                            "show": true
+                        }
+                    }
+                },
+                "entry": "http://127.0.0.1:8889/@tests"
+            }
+        },
+        "dist": {
+            "default": {
+                "files": [
+                    "src/**/*",
+                    "!src/**/*.js",
+                    "!src/**/*.jsx",
+                    "!src/**/*.css",
+                    "!src/**/*.scss",
+                    "src/bundle.js",
+                    "src/bundle.css",
+                    "test/unit/dist/bundle.test.js",
+                    "test/unit/dist/bundle.test.css"
+                ],
+                "options": {}
+            },
+            "production": {
+                "files": [
+                    "src/**/*",
+                    "!src/**/*.js",
+                    "!src/**/*.jsx",
+                    "!src/**/*.css",
+                    "!src/**/*.scss",
+                    "src/bundle.js",
+                    "src/bundle.css"
+                ],
+                "options": {}
+            }
+        },
+        "export:mobile": {
+            "default": {
+                "name": "Custom name",
+                "title": "Custom title",
+                "package": "com.reactivist.component",
+                "entry": "index.html"
+            }
+        },
+        "export:pc": {
+            "default": {
+                "entry": "index.html"
+            }
+        },
+        "sass": {
+            "default": {
+                "file": "src/index.scss",
+                "outFile": "src/bundle.css"
+            }
+        },
+        "pack-css": {
+            "default": {
+                "outFileMinified": "src/bundle.min.css",
+                "outFile": "dist/bundle.css",
+                "files": ["src/component.min.css"],
+                "options": {}
+            }
+        },
+        "imports": {
+            "default": {
+                "files": {
+                    "./node_modules/domlogger/src/domlogger.css":
+                        "./test/unit/helpers/domlogger.scss",
+                    "./node_modules/qunit/qunit/qunit.css":
+                        "./test/unit/helpers/qunit.scss"
+                }
+            }
+        },
+        "diagrams": {
+            "default": {
+                "files": "docs/**/*.mmd"
+            }
+        },
+        "i18n": {
+            "default": {
+                "files": ["i18n/en.po", "i18n/es.po", "i18n/ca.po"],
+                "outFile": ["i18n/i18n.json", "src/i18n/i18n.json"],
+                "options": {}
+            }
+        },
+        "scraps": {
+            "default": {
+                "files": ["scraps/scripts/*.js"]
+            }
+        },
+        "upload": {
+            "default": {
+                "files": [
+                    "bin/*",
+                    "bin/*/*",
+                    "bin/*/*/*",
+                    "bin/*/*/*/*",
+                    "bin/*/*/*/*/*",
+                    "bin/*/*/*/*/*/*",
+                    "bin/*/*/*/*/*/*/*",
+                    "dev/*",
+                    "dev/*/*",
+                    "dev/*/*/*",
+                    "dev/*/*/*/*",
+                    "dev/*/*/*/*/*",
+                    "dev/*/*/*/*/*/*",
+                    "dev/*/*/*/*/*/*/*",
+                    "dist/*",
+                    "dist/*/*",
+                    "dist/*/*/*",
+                    "dist/*/*/*/*",
+                    "dist/*/*/*/*/*",
+                    "dist/*/*/*/*/*/*",
+                    "dist/*/*/*/*/*/*/*",
+                    "docs/*",
+                    "docs/*/*",
+                    "docs/*/*/*",
+                    "docs/*/*/*/*",
+                    "docs/*/*/*/*/*",
+                    "docs/*/*/*/*/*/*",
+                    "docs/*/*/*/*/*/*/*",
+                    "i18n/*",
+                    "i18n/*/*",
+                    "i18n/*/*/*",
+                    "scraps/*",
+                    "scraps/*/*",
+                    "scraps/*/*/*",
+                    "scraps/*/*/*/*",
+                    "scraps/*/*/*/*/*",
+                    "scraps/*/*/*/*/*/*",
+                    "src/*",
+                    "src/*/*",
+                    "src/*/*/*",
+                    "src/*/*/*/*",
+                    "src/*/*/*/*/*",
+                    "src/*/*/*/*/*/*",
+                    "src/*/*/*/*/*/*/*",
+                    "src/*/*/*/*/*/*/*/*",
+                    "test/*",
+                    "test/*/*",
+                    "test/*/*/*",
+                    "test/*/*/*/*",
+                    "test/*/*/*/*/*",
+                    "test/*/*/*/*/*/*",
+                    "test/*/*/*/*/*/*/*",
+                    "test/*/*/*/*/*/*/*/*",
+                    "*"
+                ]
+            }
+        }
+    }
+}

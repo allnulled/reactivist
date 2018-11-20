@@ -1,0 +1,11 @@
+{
+	"fileServerFolder": "./test/e2e",
+	"fixturesFolder": "./test/e2e/fixtures",
+	"integrationFolder": "./test/e2e/integration",
+	"pluginsFile": false,
+	"screenshotsFolder": "./test/e2e/screenshots",
+	"supportFile": false,
+	"videosFolder": "./test/e2e/videos",
+	"taskTimeout": 60000,
+	"testFiles": "**/*.test.*"
+}

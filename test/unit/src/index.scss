@@ -1,0 +1,27 @@
+@import './helpers/qunit.scss';
+@import './helpers/domlogger.scss';
+
+.dom-logger-component {
+	z-index: 5000;
+}
+
+#qunit {
+	border: 2px dashed red;
+}
+
+#qunit > a.code-coverage-link {
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: yellow;
+  color: red;
+  text-decoration: none;
+  font-size: 30px;
+  text-shadow: 0 0 1px red;
+  transition: background-color .2s linear;
+}
+
+#qunit > a.code-coverage-link:hover {
+	background-color: white;
+}
